@@ -31,12 +31,19 @@ else:                                                                           
 #Bloco para mostrar lista de templates disponíveis para escolha do utilizador
         
 contador=1
+print('\nTemplates disponíveis: \n--------------------------')
+
 for templates in lista_templates:
     print(contador,' - ',templates)
     contador+=1
 templates_escolha = len(lista_templates) + 1
+print('--------------------------')
+
 while templates_escolha > len(lista_templates):
-    templates_escolha = int(input('Escolha um template de 1 a %d: ' % len(lista_templates)))
+    templates_escolha = input('Escolha um template de 1 a %d: ' % len(lista_templates))
+    if templates_escolha.isdigit():
+        templates_escolha=int(templates_escolha)
+    else: templates_escolha = len(lista_templates) + 1
 
 template_escolhido = lista_templates[templates_escolha-1]                                   #Template escolhido é guardado aqui em template_escolhido
 
